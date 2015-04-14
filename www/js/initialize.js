@@ -427,15 +427,20 @@ function initSearchMapsResults(){
 	});
 	
 	ajaxRequest.then( function (response) {
+		
+		alert("response="+response);
+		
 		if(response && response.numrows){
 			numrows = response.numrows;
+			
+			alert("numrows="+numrows);
 
 			var html = "<h2>"+wehavefound + " " + numrows + " " + mapsandtrails+" "+forthesearch+" '<b><i>"+value+"</i></b></h2>";
 			
 			if(filter != null){
 				html += filter.toString();
 			}
-			//$('#buscar-mapas-result-search').html(wehavefound + " " + numrows + " " + mapsandtrails+" "+forthesearch+" '<b><i>"+decodeURIComponent(value)+"</i></b>'"); 
+			
 			$('#buscar-mapas-result-search').html(html);
 			mapsArray = [];
 			var index = 0;
