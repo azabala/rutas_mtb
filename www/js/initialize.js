@@ -313,8 +313,7 @@ function resetFilters(){
 function initSearchMapsResults(){
 	var value  =  $('#search-criteria').val();
 	
-	//var page = "#search-maps-results" + "?q=" + value;
-	//gaPlugin.trackPage( sucessHandler, errorHandler, page);
+	alert("vamos a buscar "+value);
 	
 	if(filter != null && ! filter.isEmptyFilter()){
 		var filterButton = 	$("#filter_button");
@@ -350,6 +349,7 @@ function initSearchMapsResults(){
 	var numrows;
 	
 	if(lastTextSearch.txt == value && lastTextSearch.filter.equals(filter)){
+		alert(lastTextSearch.txt + "busqueda anterior");
 		//Repetimos la ultima busqueda, luego podemos mostrar los mismos resultados y salir
 		muestraLoading(false);
 		
@@ -426,15 +426,10 @@ function initSearchMapsResults(){
 		url:aUrl 
 	});
 	
-	ajaxRequest.then( function (response) {
-		
-		alert("response="+response);
-		
+	ajaxRequest.then( function (response) {		
 		if(response && response.numrows){
 			numrows = response.numrows;
 			
-			alert("numrows="+numrows);
-
 			var html = "<h2>"+wehavefound + " " + numrows + " " + mapsandtrails+" "+forthesearch+" '<b><i>"+value+"</i></b></h2>";
 			
 			if(filter != null){
