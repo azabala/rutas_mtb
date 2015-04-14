@@ -313,7 +313,6 @@ function resetFilters(){
 function initSearchMapsResults(){
 	var value  =  $('#search-criteria').val();
 	
-	alert("vamos a buscar "+value);
 	
 	if(filter != null && ! filter.isEmptyFilter()){
 		var filterButton = 	$("#filter_button");
@@ -349,7 +348,6 @@ function initSearchMapsResults(){
 	var numrows;
 	
 	if(lastTextSearch.txt == value && lastTextSearch.filter.equals(filter)){
-		alert(lastTextSearch.txt + "busqueda anterior");
 		//Repetimos la ultima busqueda, luego podemos mostrar los mismos resultados y salir
 		muestraLoading(false);
 		
@@ -421,6 +419,8 @@ function initSearchMapsResults(){
 		aUrl += "/" + filter.getSortDirection();
 	//}
 	
+	
+	alert("peticion "+aUrl);
 		
 	ajaxRequest = $.ajax({
 		url:aUrl 
