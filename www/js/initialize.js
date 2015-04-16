@@ -419,8 +419,6 @@ function initSearchMapsResults(){
 		aUrl += "/" + filter.getSortDirection();
 	//}
 	
-	
-	alert("peticion "+aUrl);
 		
 	ajaxRequest = $.ajax({
 		url:aUrl 
