@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.buscamapas.rutas_mtb" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.buscamapas.rutas_mtb" version="1.0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Rutas Mtb</name>
     <description>
         'Rutas Mtb' es una app que te permite acceder a más de 185.000 rutas de mountain bike repartidas por todo el mundo. Podrás descargar tracks a tu dispositivo en formato 'kml' y seguirlos montado en tu bici con los principales navegadores GPS (OruxMaps, Google Maps, etc), siempre con la cartografía de fondo de Open Street Map. En breve podrás ver panorámicas y fotografías de las zonas que estás visualizando en el mapa.
