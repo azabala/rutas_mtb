@@ -37,7 +37,7 @@
 
      <gap:plugin name="cordova-plugin-file" source="npm"/>
      <gap:plugin name="cordova-plugin-file-transfer" source="npm"/>
-     <gap:plugin name="cordova-plugin-file-opener2" source="npm"version="1.0.8" />
+     <gap:plugin name="cordova-plugin-file-opener2" source="npm" version="1.0.8" />
      
         
      <gap:plugin name="cordova-plugin-google-analytics" source="npm" />
