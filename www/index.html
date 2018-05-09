@@ -86,84 +86,7 @@ function errorHandler(msg){
 	//alert("error "+msg);
 }
 
-function dismiss(){
-	 if(gaPlugin){
-		 gaPlugin.exit(sucessHandler, errorHandler);
-	 }
-}
 
-function initAd(){
-    if ( window.plugins && window.plugins.AdMob ) {
-	    var ad_units = {
-			//ios : {
-			//	banner: 'ca-app-pub-6869992474017983/4806197152',
-			//	interstitial: 'ca-app-pub-6869992474017983/7563979554'
-			//},
-			android : {
-				banner: 'ca-app-pub-7845495201990236/4239139752',
-				interstitial: 'ca-app-pub-7845495201990236/7528853350'
-			}
-			//,wp8 : {
-			//	banner: 'ca-app-pub-6869992474017983/8878394753',
-			//	interstitial: 'ca-app-pub-6869992474017983/1355127956'
-			//}
-	    };
-	    var admobid = "";
-	    if( /(android)/i.test(navigator.userAgent) ) {
-	    	admobid = ad_units.android;
-	    } 
-	    /*
-	    else if(/(iphone|ipad)/i.test(navigator.userAgent)) {
-	    	admobid = ad_units.ios;
-	    } else {
-	    	admobid = ad_units.wp8;
-	    }
-         */
-        window.plugins.AdMob.setOptions( {
-            publisherId: admobid.banner,
-            interstitialAdId: admobid.interstitial,
-            bannerAtTop: false, // set to true, to put banner at top
-            overlap: false, // set to true, to allow banner overlap webview
-            offsetTopBar: false, // set to true to avoid ios7 status bar overlap
-            isTesting: false, // receiving test ad
-            autoShow: true // auto show interstitial ad when loaded
-        });
-
-        window.plugins.AdMob.createBannerView();  
-    } 
-}
-
-function shareOnWhatsapp(){
-	var msg = takeAlookAt +" http://www.buscamapas.com/mapas/"+GEO_TABLE+"/"+data.friendly_url;
-	var msgurl = encodeURIComponent(msg);
-	
-	var whatsappurl = "whatsapp://send?text="+msgurl;
-	
-	 window.plugins.webintent.startActivity(
-		{ 
-	  		action: window.plugins.webintent.ACTION_VIEW, 
-	  		url: whatsappurl
-	 }, 
-	 function() {}, 
-	 function(errorMsg) {
-	     //console.log('Failed to startActivity     errorMsg=' + errorMsg); 
-	     launchMarketForWhatsApp();
-	  } 
-	 ); 
-}
-
-function launchMarketForWhatsApp() { 
-	 window.plugins.webintent.startActivity(
-	 { 
-	  	action: window.plugins.webintent.ACTION_VIEW, 
-	  	url: 'market://details?id=com.whatsapp' 
-	 }, 
-	 function() {}, 
-	 function(errorMsg) {
-	     console.log('Failed to startActivity     errorMsg=' + errorMsg); 
-	  } 
-	); 
-} 
 </script>
 </head>
 
@@ -679,6 +602,73 @@ function launchMarketForWhatsApp() {
 </div>
 	
 	<script>
+	function dismiss(){
+		 if(gaPlugin){
+			 gaPlugin.exit(sucessHandler, errorHandler);
+		 }
+	}
+
+	function initAd(){
+	    if ( window.plugins && window.plugins.AdMob ) {
+		    var ad_units = {
+				android : {
+					banner: 'ca-app-pub-7845495201990236/4239139752',
+					interstitial: 'ca-app-pub-7845495201990236/7528853350'
+				}
+		    };
+		    var admobid = "";
+		    if( /(android)/i.test(navigator.userAgent) ) {
+		    	admobid = ad_units.android;
+		    } 
+	        window.plugins.AdMob.setOptions( {
+	            publisherId: admobid.banner,
+	            interstitialAdId: admobid.interstitial,
+	            bannerAtTop: false, // set to true, to put banner at top
+	            overlap: false, // set to true, to allow banner overlap webview
+	            offsetTopBar: false, // set to true to avoid ios7 status bar overlap
+	            isTesting: false, // receiving test ad
+	            autoShow: true // auto show interstitial ad when loaded
+	        });
+
+	        window.plugins.AdMob.createBannerView();  
+	    } 
+	}
+
+	function shareOnWhatsapp(){
+		var msg = takeAlookAt +" http://www.buscamapas.com/mapas/"+GEO_TABLE+"/"+data.friendly_url;
+		var msgurl = encodeURIComponent(msg);
+		
+		var whatsappurl = "whatsapp://send?text="+msgurl;
+		
+		 window.plugins.webintent.startActivity(
+			{ 
+		  		action: window.plugins.webintent.ACTION_VIEW, 
+		  		url: whatsappurl
+		 }, 
+		 function() {}, 
+		 function(errorMsg) {
+		     //console.log('Failed to startActivity     errorMsg=' + errorMsg); 
+		     launchMarketForWhatsApp();
+		  } 
+		 ); 
+	}
+
+	function launchMarketForWhatsApp() { 
+		 window.plugins.webintent.startActivity(
+		 { 
+		  	action: window.plugins.webintent.ACTION_VIEW, 
+		  	url: 'market://details?id=com.whatsapp' 
+		 }, 
+		 function() {}, 
+		 function(errorMsg) {
+		     console.log('Failed to startActivity     errorMsg=' + errorMsg); 
+		  } 
+		); 
+	} 
+	
+	
+try {	
+	
 		initTextsAndBgImages();
 		//document.addEventListener("deviceready", onDeviceReady, true);
 		onDeviceReady();
@@ -690,6 +680,15 @@ function launchMarketForWhatsApp() {
 		    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
 			}
 		}, false);
+		
+		
+		
+	}catch(err) {
+		    alert(err.message);
+}
+		
+		
+		
 	</script>
 </body>
 </html>
