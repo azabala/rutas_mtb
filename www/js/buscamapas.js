@@ -1433,3 +1433,101 @@ function renderLeafletForWikiloc(friendlyUrl, xmin, ymin,xmax, ymax, options){
 function distance(x0,y0,x1,y1){
 	return Math.sqrt( ((x1-x0)*(x1-x0)) + ((y1-y0)*(y1-y0)) );
 }
+
+function sucessHandler(msg){
+	//alert("ok "+msg);
+}
+
+function errorHandler(msg){
+	//alert("error "+msg);
+}
+
+function dismiss(){
+	 if(gaPlugin){
+		 gaPlugin.exit(sucessHandler, errorHandler);
+	 }
+}
+
+function initAd(){
+   if ( window.plugins && window.plugins.AdMob ) {
+	    var ad_units = {
+			android : {
+				banner: 'ca-app-pub-7845495201990236/4239139752',
+				interstitial: 'ca-app-pub-7845495201990236/7528853350'
+			}
+	    };
+	    var admobid = "";
+	    if( /(android)/i.test(navigator.userAgent) ) {
+	    	admobid = ad_units.android;
+	    } 
+       window.plugins.AdMob.setOptions( {
+           publisherId: admobid.banner,
+           interstitialAdId: admobid.interstitial,
+           bannerAtTop: false, // set to true, to put banner at top
+           overlap: false, // set to true, to allow banner overlap webview
+           offsetTopBar: false, // set to true to avoid ios7 status bar overlap
+           isTesting: false, // receiving test ad
+           autoShow: true // auto show interstitial ad when loaded
+       });
+
+       window.plugins.AdMob.createBannerView();  
+   } 
+}
+
+function shareOnWhatsapp(){
+	var msg = takeAlookAt +" http://www.buscamapas.com/mapas/"+GEO_TABLE+"/"+data.friendly_url;
+	var msgurl = encodeURIComponent(msg);
+	
+	var whatsappurl = "whatsapp://send?text="+msgurl;
+	
+	 window.plugins.webintent.startActivity(
+		{ 
+	  		action: window.plugins.webintent.ACTION_VIEW, 
+	  		url: whatsappurl
+	 }, 
+	 function() {}, 
+	 function(errorMsg) {
+	     //console.log('Failed to startActivity     errorMsg=' + errorMsg); 
+	     launchMarketForWhatsApp();
+	  } 
+	 ); 
+}
+
+function launchMarketForWhatsApp() { 
+	 window.plugins.webintent.startActivity(
+	 { 
+	  	action: window.plugins.webintent.ACTION_VIEW, 
+	  	url: 'market://details?id=com.whatsapp' 
+	 }, 
+	 function() {}, 
+	 function(errorMsg) {
+	     console.log('Failed to startActivity     errorMsg=' + errorMsg); 
+	  } 
+	); 
+} 
+
+
+function startApp(){
+	alert("antes de document ready");
+	$(document).ready(function() { 
+		alert("document ready");
+		initTextsAndBgImages();
+	
+		alert("registramos el deviceready");
+		
+		$(document).bind('deviceready', function(){ 
+			alert("paso por deviceready");
+			initAd();
+			onDeviceReady();
+			navigator.splashscreen.hide();
+			
+			if(window.plugins.gaPlugin){
+				gaPlugin = window.plugins.gaPlugin;
+		    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
+			}
+			alert("app inicializada");
+		});
+		
+	});
+	
+}
