@@ -1509,6 +1509,12 @@ function launchMarketForWhatsApp() {
 	); 
 } 
 
+function prepareMapPageShow(){
+	$(document).on( "pageshow", "#map_page", function(e, _data){
+		showMapPage();	
+	});
+}
+
 
 function startApp(){
 	

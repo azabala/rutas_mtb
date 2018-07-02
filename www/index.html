@@ -33,6 +33,8 @@
 	background-image: url("./img/profile-30.png");
 }
 </style>
+
+
 <script src="cordova.js"></script>
 <script src="./js/config.js"></script>
 <!--  
@@ -86,18 +88,15 @@ var isIOS = false;
 
 var localesPath = 'js/locales/__lng__/__ns__.json';
 
-function prepareMapPageShow(){
-	$(document).on( "pageshow", "#map_page", function(e, _data){
-		showMapPage();	
-	});
-}
-
 //admob interstitial counter
 var num_map_views = 0;
 </script>
 </head>
 
 <body onunload="dismiss();" onload="startApp();">
+
+
+
 	<div data-role="page" id="main-menu">
 		<div data-role="header" data-position="fixed">
 			<img border="0" src="./img/lupa-map-32x32.png" alt="buscamapas.com"
@@ -122,6 +121,10 @@ var num_map_views = 0;
 			</form>
 		</div>
 	</div>
+	
+	
+	
+	
 	<!-- formulario de busqueda -->
 	<div data-role="page" id="search-maps">
 		<div data-role="header" data-position="fixed">
@@ -146,6 +149,9 @@ var num_map_views = 0;
 			</form>
 		</div>
 	</div>
+	
+	
+	
 	<!-- pantalla de resultados de busqueda -->
 	<div data-role="page" id="search-maps-results">
 		<div data-role="header" data-position="fixed">
@@ -171,6 +177,9 @@ var num_map_views = 0;
 			</ul>
 		</div>
 	</div>
+	
+	
+	
 	
 	<!-- maps around you -->
 	<div data-role="page" id="maps-around-results">
@@ -201,6 +210,9 @@ var num_map_views = 0;
 		</div>
 	</div>
 	
+	
+	
+	
 	<!-- favoritos -->
 	<div data-role="page" id="fav-results">
 		<div data-role="header" data-position="fixed">
@@ -217,6 +229,9 @@ var num_map_views = 0;
 			</ul>
 		</div>
 	</div>
+	
+	
+	
 
 	<div data-role="page" id="map_page">
 		<div data-role="header" data-position="fixed" data-fullscreen="true">
@@ -286,6 +301,9 @@ var num_map_views = 0;
 			</div>
 		</div>
 	</div>
+	
+	
+	
 
 	<!--  map description -->
 	<div data-role="page" id="description" data-close-btn="right"
@@ -414,6 +432,9 @@ var num_map_views = 0;
 	</div>
 </div>
 
+
+
+
 <div data-role="page" id="hard_index" data-close-btn="right" data-dialog="true">
 	<div data-role="header">
 		<h1 id="more_about_hard_idx_title" data-i18n>app.more_about_difficulty_index</h1>
@@ -454,6 +475,9 @@ var num_map_views = 0;
 		</div>
 	</div>
 </div>
+
+
+
 	
 	<!--  about us -->
 	<div data-role="page" id="about_us">
@@ -472,78 +496,12 @@ var num_map_views = 0;
 			</ul>
 		</div>
 	</div>
+	
+	
 
-	<div data-role="panel" 
-		 id="map_panel" 
-		 data-position="left"
-		 data-display="overlay" 
-		 data-theme="a"  
-	>
-	       <h2 id="map_panel_general_title" data-i18n>app.general</h2>
-		 	<ul data-role="listview" id="map_panel_listview" data-inset="true">
-               		<li data-icon="false"><a href="#main-menu" id="home-button-menu" data-theme="c" data-i18n>app.home</a>
-					</li>
-					<li data-icon="false"><a href="#about_us" id="about-button-menu"
-					data-theme="c" data-i18n>app.about</a>
-					</li>
-         	</ul>		
-         	<h2 id="map_panel_tools_title" data-i18n>app.tools</h2>
-		 	<ul data-role="listview" id="tools_listview" data-inset="true">
-               		<li data-icon="false" data-inset="false">
-               			<a href="#" id="whatsapp" data-i18n>app.share_whatsapp</a>
-					</li>
-					
-					<li data-icon="false">
-						<a href="#" 
-							id="gps"
-							data-theme="c" 
-							data-icon="navigation"
-							data-i18n>app.my_location</a>
-					</li>
-					
-					<li data-icon="false">
-						<a href="#" 
-							id="fav2"
-							data-theme="c" 
-							data-icon="star"
-							data-i18n>app.mark-fav</a>
-					</li>
-         	</ul>	
-         	<a 
-         	   id="close_map_panel"
-         	   data-rel="close"
-			   class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline"
-			   data-i18n>app.close</a>
-	</div>
 	
-	<div data-role="panel" 
-		 id="menu_panel" 
-		 data-position="left"
-		 data-display="overlay" 
-		 data-theme="a"  
-	>
-	       <h2 id="menu_panel_general_title" data-i18n>app.general</h2>
-		 	<ul data-role="listview" id="menu_panel_listview" data-inset="true">
-               		<li data-icon="false"><a href="#main-menu" id="home-button-menu2" data-theme="c" data-i18n>app.home</a>
-					</li>
-					<li data-icon="false"><a href="#about_us" id="about-button-menu2"
-					data-theme="c" data-i18n>app.about</a>
-					</li>
-        	</ul>	
-         	<h2 id="menu_panel_share_title" data-i18n>app.share</h2>
-		 	<ul data-role="listview" id="share_listview" data-inset="true">
-               		<li data-icon="false" data-inset="false">
-               			<a href="#" id="whatsapp2" data-i18n>app.share_whatsapp</a>
-					</li>
-         	</ul>	
-         	<a 
-         	   id="close_menu_panel"
-         	   data-rel="close"
-			   class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline"
-			   data-i18n>app.close</a>
-	</div>
 	
-	<!-- filters dialog -->
+<!-- filters dialog -->
 <!-- filtros a aplicar en las busquedas -->
 <div data-role="page" id="filters">
 	<div data-role="header" data-position="fixed">
