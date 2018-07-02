@@ -7,6 +7,7 @@
 	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;user-scalable=no;target-densityDpi=device-dpi" />
 
 <title>Busca Mapas</title>
+
 <link rel="stylesheet" href="./css/jquery.mobile-1.4.1.min.css" />
 <link rel="stylesheet" href="./css/jqm-icon-pack-fa.css" />
 <link rel="stylesheet" href="./css/leaflet.css" />
@@ -26,20 +27,15 @@
 	background-image: url("./img/profile-30.png");
 }
 </style>
+<script src="cordova.js"></script>
 <script src="./js/config.js"></script>
-<!-- 
-<script src="phonegap.js"></script>
- -->
-
 <script src="./js/jquery-1.10.0.min.js"></script>
 <script src="./js/jquery.mobile-1.4.1.min.js"></script>
- <script src="cordova.js"></script>
 <script src="./js/initialize.js"></script>
 
 
- 
- 
 <script src="./js/i18next-1.7.4.js"></script>
+
 
 <!-- leaflet -->
 <script src="./js/leaflet/leaflet.js"></script>
@@ -47,11 +43,15 @@
 <script src="./js/leaflet/Polyline.encoded.js"></script>
 <script src="./js/buscamapas.js"></script>
 <script src="./js/leaflet_scripts.js"></script>
+
+
 <!-- wkt -->
 <script src="./js/wkt/wicket.js"></script>
 <script src="./js/wkt/wicket-leaflet.js"></script>
+
 <!-- user agent parser -->
 <script src="./js/ua-parser/ua-parser.min.js"></script>
+
 
 <!-- mapquest -->
 <script src="./js/simplify.js"></script>
@@ -157,7 +157,7 @@ function launchMarketForWhatsApp() {
 
 
 
-function init(){
+function startApp(){
 	
 	alert("antes de document ready");
 	$(document).ready(function() { 
@@ -182,9 +182,9 @@ function init(){
 </script>
 </head>
 
-<body onunload="dismiss();" onload="init();">
+<body onunload="dismiss();" onload="startApp();">
+	
 	<div data-role="page" id="main-menu">
-
 		<div data-role="header" data-position="fixed">
 			<img border="0" src="./img/lupa-map-32x32.png" alt="buscamapas.com"
 				style="float: left; display: inline" />
