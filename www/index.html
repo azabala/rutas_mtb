@@ -32,8 +32,12 @@
 <script src="./js/jquery.mobile-1.4.1.min.js"></script>
 <script src="./js/initialize.js"></script>
 
+<!-- 
 <script src="phonegap.js"></script>
-
+ -->
+ <script src="cordova.js"></script>
+ 
+ 
 <script src="./js/i18next-1.7.4.js"></script>
 
 <!-- leaflet -->
@@ -85,8 +89,6 @@ function sucessHandler(msg){
 function errorHandler(msg){
 	//alert("error "+msg);
 }
-
-
 </script>
 </head>
 
@@ -680,8 +682,6 @@ try {
 		    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
 			}
 		}, false);
-		
-		
 		
 	}catch(err) {
 		    alert(err.message);
