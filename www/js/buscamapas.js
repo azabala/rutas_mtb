@@ -1519,21 +1519,31 @@ function prepareMapPageShow(){
 function startApp(){
 	
 	$(document).ready(function() { 
-		initTextsAndBgImages();
-	
-		$(document).bind('deviceready', function(){ 
-			//initAd();
-			onDeviceReady();
-			navigator.splashscreen.hide();
-			
-			/*
-			if(window.plugins.gaPlugin){
-				gaPlugin = window.plugins.gaPlugin;
-		    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
-			}
-			*/
-			alert("app inicializada");
-		});
+		try{
+			alert("document ready");
+			initTextsAndBgImages();
+		
+			$(document).bind('deviceready', function(){ 
+				try{
+					alert("deviceready");
+					initAd();
+					onDeviceReady();
+					navigator.splashscreen.hide();
+					
+					/*
+					if(window.plugins.gaPlugin){
+						gaPlugin = window.plugins.gaPlugin;
+				    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
+					}
+					*/
+					alert("app inicializada");
+				}catch(err2){
+					alert(err2.message);
+				}
+			});
+		}catch(err){
+			alert(err.message);
+		}
 		
 	});
 	
