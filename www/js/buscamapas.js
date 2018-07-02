@@ -1450,7 +1450,7 @@ function dismiss(){
 
 function initAd(){
 	alert("inicializando anuncios");
-   if ( window.plugins && window.plugins.AdMob ) {
+	if ( window.plugins && window.plugins.AdMob ) {
 	   alert("plugin de admob correctamente cargado");
 	    var ad_units = {
 			android : {
@@ -1516,14 +1516,16 @@ function startApp(){
 		initTextsAndBgImages();
 	
 		$(document).bind('deviceready', function(){ 
-			initAd();
+			//initAd();
 			onDeviceReady();
 			navigator.splashscreen.hide();
 			
+			/*
 			if(window.plugins.gaPlugin){
 				gaPlugin = window.plugins.gaPlugin;
 		    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
 			}
+			*/
 			alert("app inicializada");
 		});
 		
