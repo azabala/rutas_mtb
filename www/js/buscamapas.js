@@ -1519,16 +1519,20 @@ function prepareMapPageShow(){
 function startApp(){
 	
 	$(document).ready(function() { 
-		try{
-			alert("document ready");
+//		try{
 			initTextsAndBgImages();
 		
-			$(document).bind('deviceready', function(){ 
-				try{
-					alert("deviceready");
-					initAd();
-					onDeviceReady();
-					navigator.splashscreen.hide();
+			alert("textos inicializados");
+			
+			onDeviceReady();
+			
+			alert("deviceready llamado");
+//			$(document).bind('deviceready', function(){ 
+//				try{
+//					alert("deviceready");
+//					initAd();
+//					onDeviceReady();
+//					navigator.splashscreen.hide();
 					
 					/*
 					if(window.plugins.gaPlugin){
@@ -1536,14 +1540,14 @@ function startApp(){
 				    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
 					}
 					*/
-					alert("app inicializada");
-				}catch(err2){
-					alert(err2.message);
-				}
-			});
-		}catch(err){
-			alert(err.message);
-		}
+//					alert("app inicializada");
+//				}catch(err2){
+//					alert(err2.message);
+//				}
+//			});
+//		}catch(err){
+//			alert(err.message);
+//		}
 		
 	});
 	
