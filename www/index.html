@@ -26,16 +26,17 @@
 	background-image: url("./img/profile-30.png");
 }
 </style>
-
 <script src="./js/config.js"></script>
-<script src="./js/jquery-1.10.0.min.js"></script>
-<script src="./js/jquery.mobile-1.4.1.min.js"></script>
-<script src="./js/initialize.js"></script>
-
 <!-- 
 <script src="phonegap.js"></script>
  -->
+
+<script src="./js/jquery-1.10.0.min.js"></script>
+<script src="./js/jquery.mobile-1.4.1.min.js"></script>
  <script src="cordova.js"></script>
+<script src="./js/initialize.js"></script>
+
+
  
  
 <script src="./js/i18next-1.7.4.js"></script>
@@ -670,29 +671,28 @@ function errorHandler(msg){
 	
 	function init(){
 	
-		try {
-		alert("antes de registrar eventos");
-				//document.addEventListener("deviceready", onDeviceReady, true);
-				document.addEventListener("deviceready", function(){
-					initTextsAndBgImages();
-					alert("inicializando app");
-					initAd();
-					onDeviceReady();
-					navigator.splashscreen.hide();
-					if(window.plugins.gaPlugin){
-						gaPlugin = window.plugins.gaPlugin;
-				    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
-					}
-					alert("app inicializada");
-				}, false);
-				
-			}catch(err) {
-				    alert(err.message);
-		}
-		alert("despues de registrar eventos");	
+		$(document).bind('ready', function(){
+			initTextsAndBgImages();
+		});
+
+			
+		$(document).bind('ready', function(){
+
+			// Cordova 'deviceready' event turn
+			$(document).bind('deviceready', function(){ 
+				initAd();
+				onDeviceReady();
+				navigator.splashscreen.hide();
+				if(window.plugins.gaPlugin){
+					gaPlugin = window.plugins.gaPlugin;
+			    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
+				}
+				alert("app inicializada");
+			);
+			});
+		
+		});		
 	}		
-		
-		
 	</script>
 </body>
 </html>
