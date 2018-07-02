@@ -673,8 +673,9 @@ function errorHandler(msg){
 		  $(document).ready(function() { 
 				initTextsAndBgImages();
 	
-				// Cordova 'deviceready' event turn
+				alert("registramos el deviceready");
 				$(document).bind('deviceready', function(){ 
+					"paso por deviceready";
 					initAd();
 					onDeviceReady();
 					navigator.splashscreen.hide();
