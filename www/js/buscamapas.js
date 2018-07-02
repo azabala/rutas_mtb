@@ -1449,7 +1449,9 @@ function dismiss(){
 }
 
 function initAd(){
+	alert("inicializando anuncios");
    if ( window.plugins && window.plugins.AdMob ) {
+	   alert("plugin de admob correctamente cargado");
 	    var ad_units = {
 			android : {
 				banner: 'ca-app-pub-7845495201990236/4239139752',
@@ -1472,6 +1474,7 @@ function initAd(){
 
        window.plugins.AdMob.createBannerView();  
    } 
+   alert("anuncios inicializados");
 }
 
 function shareOnWhatsapp(){
@@ -1508,15 +1511,11 @@ function launchMarketForWhatsApp() {
 
 
 function startApp(){
-	alert("antes de document ready");
+	
 	$(document).ready(function() { 
-		alert("document ready");
 		initTextsAndBgImages();
 	
-		alert("registramos el deviceready");
-		
 		$(document).bind('deviceready', function(){ 
-			alert("paso por deviceready");
 			initAd();
 			onDeviceReady();
 			navigator.splashscreen.hide();
