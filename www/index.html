@@ -93,7 +93,7 @@ function errorHandler(msg){
 </script>
 </head>
 
-<body onunload="dismiss();">
+<body onunload="dismiss();" onload="init();">
 	<div data-role="page" id="main-menu">
 
 		<div data-role="header" data-position="fixed">
@@ -669,6 +669,8 @@ function errorHandler(msg){
 		); 
 	} 
 	
+function init(){
+	
 	alert("antes de document ready");
 	$(document).ready(function() { 
 		alert("document ready");
@@ -688,6 +690,7 @@ function errorHandler(msg){
 		);
 		});
 	});
+}
 
 	</script>
 </body>
