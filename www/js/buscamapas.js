@@ -360,6 +360,8 @@ var disqus_config = function () {
 
 function onDeviceReady(){
 	
+	alert("onDeviceReady: dentro");
+	
 	$(document).on("pagebeforecreate", function () {	
 		pagebeforecreate();
 	});//on("pagebeforecreate"
@@ -404,6 +406,7 @@ function onDeviceReady(){
 	$(document).on( "pagebeforeshow", "#disqus", function(e,_data) {
 		showDisqusPage();
 	});
+	
 	
 }//onDeviceReady
 
