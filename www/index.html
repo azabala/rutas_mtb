@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;user-scalable=no;target-densityDpi=device-dpi" />
+ <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+<title>Busca Mapas</title>
+
+<script src="cordova.js"></script>
+
+<script>
+var app = {
+	    // Application Constructor
+	    initialize: function() {
+	        this.bindEvents();
+	    },
+	    // Bind Event Listeners
+	    //
+	    // Bind any events that are required on startup. Common events are:
+	    // 'load', 'deviceready', 'offline', and 'online'.
+	    bindEvents: function() {
+	        document.addEventListener('deviceready', this.onDeviceReady, false);
+	    },
+	    // deviceready Event Handler
+	    //
+	    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+	    // function, we must explicitly call 'app.receivedEvent(...);'
+	    onDeviceReady: function() {
+	        app.receivedEvent();
+	    },
+	    
+	    
+	    // Update DOM on a Received Event
+	    receivedEvent: function() {
+	       
+	    	alert("Dispositivo inicializado");
+
+	    }
+	};
+</script>
+
+</head>
+
+<body onunload="dismiss();">
+ <h1>PhoneGap</h1>
+  <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+</html>
