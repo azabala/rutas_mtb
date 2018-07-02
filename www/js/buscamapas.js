@@ -410,11 +410,7 @@ function onDeviceReady(){
 	
 }//onDeviceReady
 
-function initTextsAndBgImages(){
-	
-	
-alert("Cargando textos e imagenes");	
-	
+function initTextsAndBgImages(){	
 	var randombg = Math.floor(Math.random()*3); // 0 to 2
 	var url = "url("+imgs[randombg]+")";
 
@@ -627,8 +623,6 @@ alert("Cargando textos e imagenes");
         		moreAboutHardIndex = i18n.t("app.more_about_difficulty_index"); 
         		$('#more_about_hard_idx_title_2').i18n();
     		});//i18n
-	
-	
 }
 
 

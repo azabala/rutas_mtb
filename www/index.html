@@ -668,13 +668,12 @@ function errorHandler(msg){
 		); 
 	} 
 	
-	
-try {	
-	
-		initTextsAndBgImages();
+
+try {
+alert("antes de registrar eventos");
 		//document.addEventListener("deviceready", onDeviceReady, true);
-		
 		document.addEventListener("deviceready", function(){
+			initTextsAndBgImages();
 			alert("inicializando app");
 			initAd();
 			onDeviceReady();
@@ -689,6 +688,7 @@ try {
 	}catch(err) {
 		    alert(err.message);
 }
+alert("despues de registrar eventos");	
 		
 		
 		
