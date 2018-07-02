@@ -92,7 +92,7 @@ function errorHandler(msg){
 </script>
 </head>
 
-<body onunload="dismiss();">
+<body onunload="dismiss();" onload="init()">
 	<div data-role="page" id="main-menu">
 
 		<div data-role="header" data-position="fixed">
@@ -668,28 +668,29 @@ function errorHandler(msg){
 		); 
 	} 
 	
-
-try {
-alert("antes de registrar eventos");
-		//document.addEventListener("deviceready", onDeviceReady, true);
-		document.addEventListener("deviceready", function(){
-			initTextsAndBgImages();
-			alert("inicializando app");
-			initAd();
-			onDeviceReady();
-			navigator.splashscreen.hide();
-			if(window.plugins.gaPlugin){
-				gaPlugin = window.plugins.gaPlugin;
-		    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
-			}
-			alert("app inicializada");
-		}, false);
-		
-	}catch(err) {
-		    alert(err.message);
-}
-alert("despues de registrar eventos");	
-		
+	function init(){
+	
+		try {
+		alert("antes de registrar eventos");
+				//document.addEventListener("deviceready", onDeviceReady, true);
+				document.addEventListener("deviceready", function(){
+					initTextsAndBgImages();
+					alert("inicializando app");
+					initAd();
+					onDeviceReady();
+					navigator.splashscreen.hide();
+					if(window.plugins.gaPlugin){
+						gaPlugin = window.plugins.gaPlugin;
+				    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
+					}
+					alert("app inicializada");
+				}, false);
+				
+			}catch(err) {
+				    alert(err.message);
+		}
+		alert("despues de registrar eventos");	
+	}		
 		
 		
 	</script>
