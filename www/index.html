@@ -670,28 +670,21 @@ function errorHandler(msg){
 	} 
 	
 	function init(){
+		  $(document).ready(function() { 
+				initTextsAndBgImages();
 	
-		$(document).bind('ready', function(){
-			initTextsAndBgImages();
-		});
-
-			
-		$(document).bind('ready', function(){
-
-			// Cordova 'deviceready' event turn
-			$(document).bind('deviceready', function(){ 
-				initAd();
-				onDeviceReady();
-				navigator.splashscreen.hide();
-				if(window.plugins.gaPlugin){
-					gaPlugin = window.plugins.gaPlugin;
-			    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
-				}
-				alert("app inicializada");
-			);
+				// Cordova 'deviceready' event turn
+				$(document).bind('deviceready', function(){ 
+					initAd();
+					onDeviceReady();
+					navigator.splashscreen.hide();
+					if(window.plugins.gaPlugin){
+						gaPlugin = window.plugins.gaPlugin;
+				    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
+					}
+					alert("app inicializada");
+				);
 			});
-		
-		});		
 	}		
 	</script>
 </body>
