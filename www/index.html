@@ -93,7 +93,7 @@ function errorHandler(msg){
 </script>
 </head>
 
-<body onunload="dismiss();" onload="init()">
+<body onunload="dismiss();">
 	<div data-role="page" id="main-menu">
 
 		<div data-role="header" data-position="fixed">
@@ -669,24 +669,26 @@ function errorHandler(msg){
 		); 
 	} 
 	
-	function init(){
-		  $(document).ready(function() { 
-				initTextsAndBgImages();
+	alert("antes de document ready");
+	$(document).ready(function() { 
+		alert("document ready");
+		initTextsAndBgImages();
 	
-				alert("registramos el deviceready");
-				$(document).bind('deviceready', function(){ 
-					"paso por deviceready";
-					initAd();
-					onDeviceReady();
-					navigator.splashscreen.hide();
-					if(window.plugins.gaPlugin){
-						gaPlugin = window.plugins.gaPlugin;
-				    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
-					}
-					alert("app inicializada");
-				);
-			});
-	}		
+		alert("registramos el deviceready");
+		$(document).bind('deviceready', function(){ 
+			"paso por deviceready";
+			initAd();
+			onDeviceReady();
+			navigator.splashscreen.hide();
+			if(window.plugins.gaPlugin){
+				gaPlugin = window.plugins.gaPlugin;
+		    	gaPlugin.init(sucessHandler, errorHandler, "UA-56863485-1", 10);
+			}
+			alert("app inicializada");
+		);
+		});
+	});
+
 	</script>
 </body>
 </html>
