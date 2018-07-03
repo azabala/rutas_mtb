@@ -5,12 +5,16 @@
 
 <meta name="viewport"
 	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;user-scalable=no;target-densityDpi=device-dpi" />
- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+ <meta http-equiv="Content-Security-Policy" 
+ 	content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
 <title>Busca Mapas</title>
 
 <script src="cordova.js"></script>
 <script src="./js/jquery-2.1.4.min.js"></script>
 <script>
+function device_is_ready(){
+	alert("Dispositivo inicializado");
+}
 var app = {
 	    // Application Constructor
 	    initialize: function() {
@@ -23,7 +27,7 @@ var app = {
 	    // 'load', 'deviceready', 'offline', and 'online'.
 	    bindEvents: function() {
 	    	alert("antes de registrar el deviceready");
-	        document.addEventListener('deviceready', this.onDeviceReady, true);
+	    	document.addEventListener("deviceready", device_is_ready, false);
 	    },
 	   
 	    
